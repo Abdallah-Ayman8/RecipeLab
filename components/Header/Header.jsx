@@ -7,7 +7,7 @@ export default function Header() {
         <div className="flex flex-1">
           <Link href="#" className="flex items-center gap-3">
             <div className="p-2 bg-orange-600 w-fit rounded-xl">🍽</div>
-            <h3 className="text-xl font-bold">RecipeLab</h3>
+            <h3 className="text-xl text-stone-950 font-bold">RecipeLab</h3>
           </Link>
         </div>
         <ul className="gap-6 flex-1 hidden lg:flex">

@@ -104,7 +104,7 @@ export default function AllRecipes() {
                 height={200}
               />
               <div className="px-2">
-                <div className="flex justify-start gap-2 mt-2 text-sm mb-2">
+                <div className="flex justify-start gap-2 mt-2 text-sm mb-2 font-semibold">
                   <p className="px-3 py-1 bg-gray-200 rounded-full">
                     {item.type}
                   </p>
