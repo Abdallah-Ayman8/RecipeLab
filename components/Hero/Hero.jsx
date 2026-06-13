@@ -1,31 +1,6 @@
 import { ArrowRight } from "lucide-react";
-
-import Image from "next/image";
 import Link from "next/link";
-
-const items = [
-  {
-    id: "1",
-    name: "Spaghetti Carbonara",
-    time: "25",
-    rating: "4.8",
-    image: "/images/spaghetti.jpg",
-  },
-  {
-    id: "2",
-    name: "Tikka Masala",
-    time: "40",
-    rating: "4.9",
-    image: "/images/Tikka_Masala.jpg",
-  },
-  {
-    id: "3",
-    name: "Avocado Toast",
-    time: "10",
-    rating: "4.5",
-    image: "/images/Avocado_Toast.jpg",
-  },
-];
+import RightSide from "./RightSide/RightSide";
 
 export default function Hero() {
   return (
@@ -79,30 +54,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="w-full lg:w-1/2 mt-8 mb-5 flex gap-5 flex-wrap justify-center items-center">
-        {items.map((item) => (
-          <div
-            key={item.id}
-            className="flex flex-col rounded-xl cursor-pointer 
-            hover:shadow-2xl focus:shadow-2xl bg-white duration-300"
-          >
-            <div className="rounded-t-xl w-72 md:w-50 h-fit flex flex-col">
-              <Image
-                src={item.image}
-                alt={item.name}
-                width={200}
-                height={200}
-                className="rounded-t-xl h-40 w-72 md:w-50"
-              />
-            </div>
-            <div className="flex flex-col p-3 gap-y-2">
-              <p className="text-stone-950">{item.name}</p>
-              <div className="flex justify-between items-center w-full">
-                <p className="text-stone-600 text-sm">⏱{item.time}</p>
-                <p className="text-stone-600 text-sm">⭐{item.rating}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+        <RightSide />
       </div>
     </main>
   );

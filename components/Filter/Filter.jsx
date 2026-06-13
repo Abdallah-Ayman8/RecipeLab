@@ -1,8 +1,11 @@
-export default function Filter() {
+import FilterButton from "../filterButton/Button";
+
+export default async function Filter({ handleFilter }) {
   return (
     <div className="flex justify-between items-center">
-      <div className="flex items-center">
+      <div className="flex items-center gap-4 flex-wrap">
         <h1 className="text-xl font-serif">All Recipes</h1>
+        <FilterButton />
       </div>
       <div
         className="flex justify-between items-center border 
@@ -11,9 +14,9 @@ export default function Filter() {
       >
         <p>Sort: </p>
         <select className="text-stone-950 cursor-pointer px-2 outline-none">
-          <option>Option1</option>
-          <option>Option2</option>
-          <option>Option3</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
         </select>
       </div>
     </div>
