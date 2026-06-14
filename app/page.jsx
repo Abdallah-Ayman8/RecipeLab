@@ -3,7 +3,8 @@ import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import { Fragment } from "react";
 
-export default function Home() {
+export default async function Home() {
+
   return (
     <Fragment>
       <Header />

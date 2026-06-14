@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SurpriseBtn from "./SurpriseBtn/SurpriseBtn";
 
 export default function Header() {
   return (
@@ -41,14 +42,7 @@ export default function Header() {
           placeholder-stone-400 duration-300"
             placeholder="Search recipes..."
           />
-          <button
-            type="button"
-            className="hidden sm:flex text-sm p-2 px-4 shadow-2xl hover:shadow-orange-600/30
-          text-white bg-orange-600 hover:bg-orange-700 cursor-pointer
-          duration-200 rounded-full font-bold hover:-translate-y-0.5"
-          >
-            ✦ Surprise Me
-          </button>
+          <SurpriseBtn />
         </div>
       </nav>
     </header>
