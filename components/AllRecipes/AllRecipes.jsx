@@ -14,7 +14,7 @@ export default async function AllRecipes() {
     );
   }
   const data = await res.json();
-  const recipes = await data.recipes;
+  const recipes = await data.recipes.slice(0,12);
 
   function handleFilter(mealType) {}
 

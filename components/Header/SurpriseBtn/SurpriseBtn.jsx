@@ -3,11 +3,13 @@
 import { RandomRecipe } from "@/api/api";
 import { XCircle } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function SurpriseBtn() {
   const [isOpen, setIsOpen] = useState(false);
   const [item, setItem] = useState();
+  const pathname = usePathname();
   async function handleSurpriseBtn() {
     const data = await RandomRecipe();
     setItem(data);
@@ -22,7 +24,7 @@ export default function SurpriseBtn() {
     <>
       <button
         type="button"
-        className="hidden sm:flex text-sm p-2 px-4 shadow-2xl hover:shadow-orange-600/30 text-white bg-orange-600 hover:bg-orange-700 cursor-pointer duration-200 rounded-full font-bold hover:-translate-y-0.5"
+        className={`${pathname !== "/" ? "hidden" : "flex"} text-sm p-2 px-4 shadow-2xl hover:shadow-orange-600/30 text-white bg-orange-600 hover:bg-orange-700 cursor-pointer duration-200 rounded-full font-bold hover:-translate-y-0.5`}
         onClick={() => handleSurpriseBtn()}
         onTouchMove={() => handleSurpriseBtn()}
       >

@@ -1,4 +1,6 @@
+import Header from "@/components/Header/Header";
 import "./globals.css";
+import Transition from "@/lib/Transition";
 
 export const metadata = {
   title: "RecipeLab",
@@ -9,7 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Header />
+        {/* for page Transition */}
+        <Transition>{children}</Transition>
+      </body>
     </html>
   );
 }
