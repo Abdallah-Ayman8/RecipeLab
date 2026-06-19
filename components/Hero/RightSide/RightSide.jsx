@@ -16,13 +16,13 @@ export default async function RightSide() {
           className="flex flex-col rounded-xl cursor-pointer 
             hover:shadow-2xl focus:shadow-2xl bg-white duration-300"
         >
-          <div className="rounded-t-xl w-72 md:w-50 h-fit flex flex-col">
+          <div className="rounded-t-xl w-60 h-fit flex flex-col">
             <Image
               src={item.image}
               alt={item.name}
               width={200}
               height={200}
-              className="rounded-t-xl h-40 w-72 md:w-50"
+              className="rounded-t-xl w-full h-auto"
             />
           </div>
           <div className="flex flex-col p-3 gap-y-2">

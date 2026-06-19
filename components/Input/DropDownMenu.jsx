@@ -1,0 +1,41 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import Image from "next/image";
+
+export default function DropDownMenu({ items }) {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button>Open Menu</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="mt-3 w-60">
+        {items?.map((item) => (
+          <div key={item.id}>
+            <DropdownMenuItem>
+              <div className="flex justify-between items-center gap-3">
+                <div>{item?.name}</div>
+                <div>
+                  <Image
+                    src={item?.image}
+                    alt={item?.name}
+                    width={310}
+                    height={300}
+                    loading="eager"
+                    className="rounded-2xl w-full h-auto"
+                  />
+                </div>
+              </div>
+            </DropdownMenuItem>
+          </div>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}

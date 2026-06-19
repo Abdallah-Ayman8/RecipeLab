@@ -5,7 +5,7 @@ import NavLink from "../Navlink/Nav-Link";
 
 export default function Header() {
   return (
-    <header className="flex p-3 bg-orange-50/90 backdrop-blur-md border-b border-stone-200">
+    <header className="sticky top-0 z-[99999] p-3 bg-orange-50/90 backdrop-blur-md border-b border-stone-200">
       <nav className="px-5 flex justify-between items-center w-full">
         <div className="flex flex-1 justify-start items-center">
           <Link href="/" className="flex items-center gap-3">

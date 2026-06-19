@@ -1,4 +1,3 @@
-import AllRecipes from "@/components/AllRecipes/AllRecipes";
 import Image from "next/image";
 
 export default async function CollectionPage() {
@@ -31,11 +30,11 @@ export default async function CollectionPage() {
           {recipes.map((recipe) => (
             <div
               key={recipe.id}
-              className="w-60 bg-white flex flex-col justify-center items-center hover:shadow-2xl duration-300 cursor-pointer hover:-translate-y-1 rounded-2xl"
+              className="bg-white flex flex-col justify-center items-center hover:shadow-2xl duration-300 cursor-pointer hover:-translate-y-1 rounded-2xl"
             >
-              <div className="w-60 h-52 rounded-t-2xl">
+              <div className="rounded-t-2xl">
                 <Image
-                  className="w-full h-52 rounded-t-2xl"
+                  className="w-full rounded-t-2xl"
                   src={recipe.image}
                   alt={recipe.name}
                   width={310}

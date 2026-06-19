@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Filter from "../Filter/Filter";
+import FavBtn from "./FavBtn";
+
 import { ArrowRight } from "lucide-react";
 
 export default async function AllRecipes() {
@@ -15,28 +17,27 @@ export default async function AllRecipes() {
   }
   const data = await res.json();
   const recipes = await data.recipes.slice(0,12);
-
-  function handleFilter(mealType) {}
-
   return (
     <>
-      <main className="px-16 md:px-45 pt-10 bg-linear-to-r from-white pb-30 to-orange-100">
-        <Filter handleFilter={handleFilter} />
+      <main className="px-2 md:px-16 pt-10 bg-linear-to-r from-white pb-30 to-orange-100">
+        <Filter />
         <div className="flex flex-wrap justify-center items-center gap-8">
-          {recipes.map((item) => (
+          {recipes?.map((item) => (
             <div
               key={item.id}
-              className="w-56 bg-white rounded-2xl mt-8 shadow hover:shadow-xl 
+              className="bg-white rounded-2xl mt-8 shadow hover:shadow-xl relative
               hover:-translate-y-0.5 duration-200
               cursor-pointer"
-              data-type={item.mealType}
+              data-type={item.name}
             >
+              <FavBtn recipeId={recipes.id} />
               <Image
-                className="rounded-t-2xl"
+                className="rounded-t-2xl object-cover w-full h-auto"
                 src={item.image}
                 alt={item.name}
                 width={310}
                 height={200}
+                loading="eager"
               />
               <div className="px-2">
                 <div className="flex justify-start gap-2 mt-2 text-sm mb-2 font-semibold">
