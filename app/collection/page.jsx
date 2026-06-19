@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default async function CollectionPage() {
+export default async function CollectionsPage() {
   const res = await fetch("https://dummyjson.com/recipes");
   if (!res.ok) {
     return (
@@ -34,7 +34,7 @@ export default async function CollectionPage() {
             >
               <div className="rounded-t-2xl">
                 <Image
-                  className="w-full rounded-t-2xl"
+                  className="w-full h-auto rounded-t-2xl"
                   src={recipe.image}
                   alt={recipe.name}
                   width={310}

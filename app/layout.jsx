@@ -4,7 +4,11 @@ import Transition from "@/lib/Transition";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata = {
   title: "RecipeLab",
@@ -14,10 +18,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={cn("font-sans", inter.variable)}>
+    <html lang="en" className={inter.variable}>
       <body className="min-h-full flex flex-col">
         <Header />
-        {/* for page Transition */}
+
         <Transition>{children}</Transition>
       </body>
     </html>
