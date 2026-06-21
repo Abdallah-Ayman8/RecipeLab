@@ -13,7 +13,9 @@ export default function DropDownMenu({ items }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button>Open Menu</Button>
+        <Button className="bg-orange-600 hover:bg-orange-600 cursor-pointer hover:-translate-y-1 duration-300 hover:text-black">
+          Open Menu
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-3 w-115">
         {items?.map((item) => (

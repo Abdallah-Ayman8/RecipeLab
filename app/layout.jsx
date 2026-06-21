@@ -2,12 +2,10 @@ import Header from "@/components/Header/Header";
 import "./globals.css";
 import Transition from "@/lib/Transition";
 import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
 });
 
 export const metadata = {
@@ -18,10 +16,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.className}>
       <body className="min-h-full flex flex-col">
         <Header />
-
         <Transition>{children}</Transition>
       </body>
     </html>

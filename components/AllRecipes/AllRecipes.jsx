@@ -16,7 +16,7 @@ export default async function AllRecipes() {
     );
   }
   const data = await res.json();
-  const recipes = await data.recipes.slice(0,12);
+  const recipes = await data.recipes.slice(0, 12);
   return (
     <>
       <main className="px-2 md:px-16 pt-10 bg-linear-to-r from-white pb-30 to-orange-100">
@@ -24,17 +24,16 @@ export default async function AllRecipes() {
         <div className="flex flex-wrap justify-center items-center gap-8">
           {recipes?.map((item) => (
             <div
-              key={item.id}
+              key={item?.id}
               className="bg-white rounded-2xl mt-8 shadow hover:shadow-xl relative
               hover:-translate-y-0.5 duration-200
               cursor-pointer"
-              data-type={item.name}
             >
-              <FavBtn recipeId={recipes.id} />
+              <FavBtn recipeId={item?.id} />
               <Image
                 className="rounded-t-2xl object-cover w-full h-auto"
-                src={item.image}
-                alt={item.name}
+                src={item?.image}
+                alt={item?.name}
                 width={310}
                 height={200}
                 loading="eager"
@@ -42,24 +41,24 @@ export default async function AllRecipes() {
               <div className="px-2">
                 <div className="flex justify-start gap-2 mt-2 text-sm mb-2 font-semibold">
                   <p className="px-3 py-1 bg-gray-200 rounded-full">
-                    {item.tags.at(0)}
+                    {item?.tags.at(0)}
                   </p>
                   <p className="px-3 py-1 bg-gray-200 rounded-full">
-                    {item.tags.at(1)}
+                    {item?.tags.at(1)}
                   </p>
                 </div>
-                <h3 className="px-2 font-serif text-stone-950">{item.name}</h3>
+                <h3 className="px-2 font-serif text-stone-950">{item?.name}</h3>
                 <div className="mt-2 flex justify-start items-center gap-2 text-sm pb-3 border-b mx-2">
                   <p className="text-stone-600 text-sm">
-                    ⏱ {item.prepTimeMinutes + item.cookTimeMinutes} mins
+                    ⏱ {item?.prepTimeMinutes + item?.cookTimeMinutes} mins
                   </p>
                   <p>.</p>
                   <p className="text-stone-600 text-sm">
-                    👥 {item.servings} Servings
+                    👥 {item?.servings} Servings
                   </p>
                 </div>
                 <div className="flex justify-between items-center gap-4 pb-3 mt-3 text-sm px-2">
-                  <p className="text-orange-600">★★★★★ {item.rating}</p>
+                  <p className="text-orange-600">★★★★★ {item?.rating}</p>
                   <p className="flex justify-baseline text-orange-600">
                     View recipe <ArrowRight />
                   </p>

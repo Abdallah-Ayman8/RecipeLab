@@ -1,3 +1,4 @@
+import FavBtn from "@/components/AllRecipes/FavBtn";
 import Image from "next/image";
 
 export default async function CollectionsPage() {
@@ -30,8 +31,9 @@ export default async function CollectionsPage() {
           {recipes.map((recipe) => (
             <div
               key={recipe.id}
-              className="bg-white flex flex-col justify-center items-center hover:shadow-2xl duration-300 cursor-pointer hover:-translate-y-1 rounded-2xl"
+              className="relative bg-white flex flex-col justify-center items-center hover:shadow-2xl duration-300 cursor-pointer hover:-translate-y-1 rounded-2xl"
             >
+              <FavBtn recipeId={recipe.id} />
               <div className="rounded-t-2xl">
                 <Image
                   className="w-full h-auto rounded-t-2xl"
