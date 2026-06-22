@@ -1,6 +1,8 @@
 "use client";
 
+import { slugify } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function FavoritesList() {
@@ -32,17 +34,19 @@ export default function FavoritesList() {
   return (
     <div className="grid md:grid-cols-3 gap-6">
       {recipes?.map((recipe) => (
-        <div key={recipe?.id} className="border rounded-xl p-4">
-          <Image
-            src={recipe?.image}
-            alt={recipe?.name}
-            className="w-full h-auto rounded-lg object-cover"
-            width={310}
-            height={300}
-            loading="eager"
-          />
-          <h2 className="mt-3 font-semibold">{recipe?.name}</h2>
-        </div>
+        <Link key={recipe?.id} href={`/recipes/${slugify(recipe.name)}`}>
+          <div className="border rounded-xl p-4 cursor-pointer hover:-translate-y-1 duration-300 hover:shadow-2xl">
+            <Image
+              src={recipe?.image}
+              alt={recipe?.name}
+              className="w-full h-auto rounded-lg object-cover"
+              width={310}
+              height={300}
+              loading="eager"
+            />
+            <h2 className="mt-3 font-semibold">{recipe?.name}</h2>
+          </div>
+        </Link>
       ))}
     </div>
   );

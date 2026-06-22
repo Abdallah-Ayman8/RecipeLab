@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata = {
   title: "RecipeLab",
   description:
-    "Search, browse, and save recipes from around the world. Built with Next.js 14, Tailwind CSS, and the free TheMealDB API — featuring dynamic routing, category filters, favorites via localStorage, and loading skeletons. Deployed on Vercel.",
+    "Search, browse, and save recipes from around the world. Built with Next.js 16, Tailwind CSS, and the free TheMealDB API — featuring dynamic routing, category filters, favorites via localStorage, and loading skeletons. Deployed on Vercel.",
 };
 
 export default function RootLayout({ children }) {

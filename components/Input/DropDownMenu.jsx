@@ -7,7 +7,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { slugify } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function DropDownMenu({ items }) {
   return (
@@ -19,23 +21,25 @@ export default function DropDownMenu({ items }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-3 w-115">
         {items?.map((item) => (
-          <div key={item.id}>
-            <DropdownMenuItem>
-              <div className="flex justify-between items-center w-full gap-3 h-16">
-                <div>{item?.name}</div>
-                <div className="w-16">
-                  <Image
-                    src={item?.image}
-                    alt={item?.name}
-                    width={310}
-                    height={300}
-                    loading="eager"
-                    className="rounded-2xl w-full h-auto object-cover"
-                  />
+          <Link key={item.id} href={`/recipes/${slugify(item.name)}`}>
+            <div>
+              <DropdownMenuItem>
+                <div className="flex justify-between items-center w-full gap-3 h-16 hover:cursor-pointer">
+                  <div>{item?.name}</div>
+                  <div className="w-16">
+                    <Image
+                      src={item?.image}
+                      alt={item?.name}
+                      width={310}
+                      height={300}
+                      loading="eager"
+                      className="rounded-2xl w-full h-auto object-cover"
+                    />
+                  </div>
                 </div>
-              </div>
-            </DropdownMenuItem>
-          </div>
+              </DropdownMenuItem>
+            </div>
+          </Link>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>

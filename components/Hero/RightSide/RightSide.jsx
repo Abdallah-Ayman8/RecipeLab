@@ -6,7 +6,7 @@ export default async function RightSide() {
     return;
   }
   const data = await res.json();
-  const recipes = await data.recipes.slice(0, 3);
+  const recipes = data.recipes.slice(0, 3);
 
   return (
     <>
