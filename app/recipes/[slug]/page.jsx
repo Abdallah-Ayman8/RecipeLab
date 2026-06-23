@@ -17,9 +17,7 @@ export default async function RecipePage({ params }) {
   const data = await res.json();
   const recipes = data.recipes;
 
-  const recipe = recipes?.find(
-    (recipe) => slugify(recipe?.name) === slug
-  );
+  const recipe = recipes?.find((recipe) => slugify(recipe?.name) === slug);
 
   if (!recipe)
     return (
@@ -32,33 +30,41 @@ export default async function RecipePage({ params }) {
 
   return (
     <main className="flex justify-center items-center px-2 py-6 w-full flex-wrap flex-col gap-4">
-      <h1 className="text-4xl text-stone-600 font-serif">{recipe?.name}</h1>
-      <div className="w-100">
-        <Image
-          src={recipe?.image}
-          alt={recipe?.name}
-          width={310}
-          height={300}
-          className="w-full h-auto rounded-3xl"
-          loading="eager"
-        />
-      </div>
-      <h2 className="text-2xl text-orange-600">ingredients:</h2>
-      <ul className="flex flex-col gap-2 justify-center items-start list-decimal">
-        {recipe?.ingredients?.map((ingredient) => (
-          <li key={ingredient} className="text-stone-600">
-            {ingredient}
-          </li>
-        ))}
-      </ul>
-      <h2 className="text-2xl text-orange-600">instructions:</h2>
-      <ul className="flex flex-col gap-2 justify-center items-start list-decimal">
-        {recipe?.instructions?.map((instruction) => (
-          <li key={instruction} className="text-stone-600">
-            {instruction}
-          </li>
-        ))}
-      </ul>
+      <section className="flex flex-col gap-4 justify-start items-start px-2 w-full">
+        <h1 className="text-4xl text-stone-600 font-serif self-center">
+          {recipe?.name}
+        </h1>
+        <div className="w-full flex justify-center items-center">
+          <Image
+            src={recipe?.image}
+            alt={recipe?.name}
+            width={310}
+            height={310}
+            className="w-full rounded-3xl h-120 object-cover"
+            loading="eager"
+          />
+        </div>
+        <h2 className="text-2xl text-orange-600">ingredients:</h2>
+        <div className="px-8">
+          <ul className="flex flex-col gap-2 justify-center items-start list-decimal">
+            {recipe?.ingredients?.map((ingredient) => (
+              <li key={ingredient} className="text-stone-600">
+                {ingredient}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <h2 className="text-2xl text-orange-600">instructions:</h2>
+        <div className="px-8">
+          <ul className="flex flex-col gap-2 justify-start items-start list-decimal">
+            {recipe?.instructions?.map((instruction) => (
+              <li key={instruction} className="text-stone-600">
+                {instruction}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </main>
   );
 }
