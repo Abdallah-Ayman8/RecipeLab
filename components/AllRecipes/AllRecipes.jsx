@@ -18,7 +18,7 @@ export default async function AllRecipes() {
     );
   }
   const data = await res.json();
-  const recipes = data.recipes.slice(0, 1);
+  const recipes = data.recipes.slice(0, 12);
   return (
     <>
       <main className="px-2 md:px-16 pt-10 bg-linear-to-r from-white pb-30 to-orange-100">
