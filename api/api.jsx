@@ -6,3 +6,9 @@ export async function RandomRecipe() {
 
   return recipe;
 }
+
+export function filterRecipes(mealType) {
+  const filtered = recipes.filter((recipe) =>
+    recipe.mealType.includes(mealType),
+  );
+}

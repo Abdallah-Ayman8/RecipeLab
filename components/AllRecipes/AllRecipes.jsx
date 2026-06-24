@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Filter from "../Filter/Filter";
 import FavBtn from "./FavBtn";
 
 import { ArrowRight } from "lucide-react";
@@ -17,12 +16,13 @@ export default async function AllRecipes() {
       </main>
     );
   }
+
   const data = await res.json();
   const recipes = data.recipes.slice(0, 12);
+
   return (
     <>
       <main className="px-2 md:px-16 pt-10 bg-linear-to-r from-white pb-30 to-orange-100">
-        <Filter />
         <div className="flex flex-wrap justify-center items-center gap-8">
           {recipes?.map((item) => (
             <div

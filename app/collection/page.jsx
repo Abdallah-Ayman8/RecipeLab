@@ -1,5 +1,6 @@
 import FavBtn from "@/components/AllRecipes/FavBtn";
 import { slugify } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,39 +32,46 @@ export default async function CollectionsPage() {
         </section>
         <section className="px-4 py-12 w-full bg-linear-to-r from-white to-orange-50 flex flex-wrap gap-5 justify-center items-center">
           {recipes.map((recipe) => (
-            <Link href={`/recipes/${slugify(recipe.name)}`} key={recipe?.id}>
-              <div className="relative bg-white flex flex-col justify-center items-center hover:shadow-2xl duration-300 cursor-pointer hover:-translate-y-1 rounded-2xl">
-                <FavBtn recipeId={recipe?.id} />
-                <div className="rounded-t-2xl">
-                  <Image
-                    className="w-full h-auto rounded-t-2xl"
-                    src={recipe?.image}
-                    alt={recipe?.name}
-                    width={310}
-                    height={210}
-                  />
-                </div>
-                <div className="px-2 w-full flex justify-start gap-2 mt-3 text-sm mb-1 font-semibold">
-                  <p className="px-3 py-1 bg-gray-200 rounded-full">
-                    {recipe?.tags?.at(0)}
+            <div
+              key={recipe.id}
+              className="relative bg-white flex flex-col justify-center items-center hover:shadow-2xl duration-300 cursor-pointer hover:-translate-y-1 rounded-2xl"
+            >
+              <FavBtn recipeId={recipe?.id} />
+              <div className="rounded-t-2xl">
+                <Image
+                  className="w-full h-auto rounded-t-2xl"
+                  src={recipe?.image}
+                  alt={recipe?.name}
+                  width={310}
+                  height={210}
+                  loading="eager"
+                />
+              </div>
+              <div className="px-2 w-full flex justify-start gap-2 mt-3 text-sm mb-1 font-semibold">
+                <p className="px-3 py-1 bg-gray-200 rounded-full">
+                  {recipe?.tags?.at(0)}
+                </p>
+                <p className="px-3 py-1 bg-gray-200 rounded-full">
+                  {recipe?.tags?.at(1)}
+                </p>
+              </div>
+              <div className="flex flex-col p-3 gap-y-2 w-full">
+                <p className="text-stone-950">{recipe?.name}</p>
+                <div className="flex justify-between items-center w-full border-b border-stone-500">
+                  <p className="text-stone-600 text-sm">
+                    ⏱ {recipe?.prepTimeMinutes + recipe?.cookTimeMinutes} mins
                   </p>
-                  <p className="px-3 py-1 bg-gray-200 rounded-full">
-                    {recipe?.tags?.at(1)}
-                  </p>
+                  <p className="text-stone-600 text-sm">⭐ {recipe?.rating}</p>
                 </div>
-                <div className="flex flex-col p-3 gap-y-2 w-full">
-                  <p className="text-stone-950">{recipe?.name}</p>
-                  <div className="flex justify-between items-center w-full">
-                    <p className="text-stone-600 text-sm">
-                      ⏱ {recipe?.prepTimeMinutes + recipe?.cookTimeMinutes} mins
-                    </p>
-                    <p className="text-stone-600 text-sm">
-                      ⭐ {recipe?.rating}
+                <Link href={`/recipes/${slugify(recipe.name)}`}>
+                  <div className="w-full flex justify-center items-center">
+                    <p className="w-full flex justify-center items-center text-orange-600">
+                      View Recipe <ArrowRight />
                     </p>
                   </div>
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </section>
       </main>

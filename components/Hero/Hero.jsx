@@ -18,15 +18,17 @@ export default function Hero() {
           cuisine, time, ingredients — find exactly what you feel like cooking.
         </p>
         <div className="flex justify-center items-baseline gap-4 mt-8">
-          <button
-            className="flex justify-center items-center gap-2 px-5 py-2 
-          bg-orange-600 rounded-full text-white 
+          <Link href={"/collection"}>
+            <button
+              className="flex justify-center items-center gap-2 px-5 py-2 
+            bg-orange-600 rounded-full text-white 
           hover:bg-orange-700 focus:bg-orange-700 cursor-pointer
           hover:shadow-orange-600/30 shadow-2xl hover:-translate-y-0.5 focus:-translate-y-0.5
           duration-200"
-          >
-            Browse Recipes <ArrowRight />
-          </button>
+            >
+              Browse Recipes <ArrowRight />
+            </button>
+          </Link>
           <Link
             href=""
             className="text-stone-600 border-stone-400 border-dashed border-b"
